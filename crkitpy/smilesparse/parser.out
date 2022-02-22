@@ -1,0 +1,489 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> expression
+Rule 1     expression -> ATOM
+Rule 2     expression -> LSQUAR ATOM
+Rule 3     expression -> LSQUAR ATOM_H
+Rule 4     expression -> expression LSQUAR ATOM_H
+Rule 5     expression -> expression DOT
+Rule 6     expression -> expression CHARGE
+Rule 7     expression -> expression BOND
+Rule 8     expression -> expression ATOM
+Rule 9     expression -> expression ATOM_H NUM
+Rule 10    expression -> expression ATOM_H
+Rule 11    expression -> expression LPAREN
+Rule 12    expression -> expression RPAREN
+Rule 13    expression -> expression MAP_NUM
+Rule 14    expression -> expression CYCLE_NUM
+Rule 15    expression -> expression NUM
+Rule 16    expression -> expression RSQUAR
+Rule 17    expression -> expression LSQUAR
+Rule 18    expression -> expression COLON
+
+Terminals, with rules where they appear
+
+ATOM                 : 1 2 8
+ATOM_H               : 3 4 9 10
+BOND                 : 7
+CHARGE               : 6
+COLON                : 18
+CYCLE_NUM            : 14
+DOT                  : 5
+LPAREN               : 11
+LSQUAR               : 2 3 4 17
+MAP_NUM              : 13
+NUM                  : 9 15
+RPAREN               : 12
+RSQUAR               : 16
+error                : 
+
+Nonterminals, with rules where they appear
+
+expression           : 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 0
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . expression
+    (1) expression -> . ATOM
+    (2) expression -> . LSQUAR ATOM
+    (3) expression -> . LSQUAR ATOM_H
+    (4) expression -> . expression LSQUAR ATOM_H
+    (5) expression -> . expression DOT
+    (6) expression -> . expression CHARGE
+    (7) expression -> . expression BOND
+    (8) expression -> . expression ATOM
+    (9) expression -> . expression ATOM_H NUM
+    (10) expression -> . expression ATOM_H
+    (11) expression -> . expression LPAREN
+    (12) expression -> . expression RPAREN
+    (13) expression -> . expression MAP_NUM
+    (14) expression -> . expression CYCLE_NUM
+    (15) expression -> . expression NUM
+    (16) expression -> . expression RSQUAR
+    (17) expression -> . expression LSQUAR
+    (18) expression -> . expression COLON
+
+    ATOM            shift and go to state 2
+    LSQUAR          shift and go to state 3
+
+    expression                     shift and go to state 1
+
+state 1
+
+    (0) S' -> expression .
+    (4) expression -> expression . LSQUAR ATOM_H
+    (5) expression -> expression . DOT
+    (6) expression -> expression . CHARGE
+    (7) expression -> expression . BOND
+    (8) expression -> expression . ATOM
+    (9) expression -> expression . ATOM_H NUM
+    (10) expression -> expression . ATOM_H
+    (11) expression -> expression . LPAREN
+    (12) expression -> expression . RPAREN
+    (13) expression -> expression . MAP_NUM
+    (14) expression -> expression . CYCLE_NUM
+    (15) expression -> expression . NUM
+    (16) expression -> expression . RSQUAR
+    (17) expression -> expression . LSQUAR
+    (18) expression -> expression . COLON
+
+    LSQUAR          shift and go to state 4
+    DOT             shift and go to state 6
+    CHARGE          shift and go to state 7
+    BOND            shift and go to state 8
+    ATOM            shift and go to state 9
+    ATOM_H          shift and go to state 5
+    LPAREN          shift and go to state 11
+    RPAREN          shift and go to state 12
+    MAP_NUM         shift and go to state 13
+    CYCLE_NUM       shift and go to state 14
+    NUM             shift and go to state 10
+    RSQUAR          shift and go to state 15
+    COLON           shift and go to state 16
+
+
+state 2
+
+    (1) expression -> ATOM .
+
+    LSQUAR          reduce using rule 1 (expression -> ATOM .)
+    DOT             reduce using rule 1 (expression -> ATOM .)
+    CHARGE          reduce using rule 1 (expression -> ATOM .)
+    BOND            reduce using rule 1 (expression -> ATOM .)
+    ATOM            reduce using rule 1 (expression -> ATOM .)
+    ATOM_H          reduce using rule 1 (expression -> ATOM .)
+    LPAREN          reduce using rule 1 (expression -> ATOM .)
+    RPAREN          reduce using rule 1 (expression -> ATOM .)
+    MAP_NUM         reduce using rule 1 (expression -> ATOM .)
+    CYCLE_NUM       reduce using rule 1 (expression -> ATOM .)
+    NUM             reduce using rule 1 (expression -> ATOM .)
+    RSQUAR          reduce using rule 1 (expression -> ATOM .)
+    COLON           reduce using rule 1 (expression -> ATOM .)
+    $end            reduce using rule 1 (expression -> ATOM .)
+
+
+state 3
+
+    (2) expression -> LSQUAR . ATOM
+    (3) expression -> LSQUAR . ATOM_H
+
+    ATOM            shift and go to state 17
+    ATOM_H          shift and go to state 18
+
+
+state 4
+
+    (4) expression -> expression LSQUAR . ATOM_H
+    (17) expression -> expression LSQUAR .
+
+  ! shift/reduce conflict for ATOM_H resolved as shift
+    ATOM_H          shift and go to state 19
+    LSQUAR          reduce using rule 17 (expression -> expression LSQUAR .)
+    DOT             reduce using rule 17 (expression -> expression LSQUAR .)
+    CHARGE          reduce using rule 17 (expression -> expression LSQUAR .)
+    BOND            reduce using rule 17 (expression -> expression LSQUAR .)
+    ATOM            reduce using rule 17 (expression -> expression LSQUAR .)
+    LPAREN          reduce using rule 17 (expression -> expression LSQUAR .)
+    RPAREN          reduce using rule 17 (expression -> expression LSQUAR .)
+    MAP_NUM         reduce using rule 17 (expression -> expression LSQUAR .)
+    CYCLE_NUM       reduce using rule 17 (expression -> expression LSQUAR .)
+    NUM             reduce using rule 17 (expression -> expression LSQUAR .)
+    RSQUAR          reduce using rule 17 (expression -> expression LSQUAR .)
+    COLON           reduce using rule 17 (expression -> expression LSQUAR .)
+    $end            reduce using rule 17 (expression -> expression LSQUAR .)
+
+  ! ATOM_H          [ reduce using rule 17 (expression -> expression LSQUAR .) ]
+
+
+state 5
+
+    (9) expression -> expression ATOM_H . NUM
+    (10) expression -> expression ATOM_H .
+
+  ! shift/reduce conflict for NUM resolved as shift
+    NUM             shift and go to state 20
+    LSQUAR          reduce using rule 10 (expression -> expression ATOM_H .)
+    DOT             reduce using rule 10 (expression -> expression ATOM_H .)
+    CHARGE          reduce using rule 10 (expression -> expression ATOM_H .)
+    BOND            reduce using rule 10 (expression -> expression ATOM_H .)
+    ATOM            reduce using rule 10 (expression -> expression ATOM_H .)
+    ATOM_H          reduce using rule 10 (expression -> expression ATOM_H .)
+    LPAREN          reduce using rule 10 (expression -> expression ATOM_H .)
+    RPAREN          reduce using rule 10 (expression -> expression ATOM_H .)
+    MAP_NUM         reduce using rule 10 (expression -> expression ATOM_H .)
+    CYCLE_NUM       reduce using rule 10 (expression -> expression ATOM_H .)
+    RSQUAR          reduce using rule 10 (expression -> expression ATOM_H .)
+    COLON           reduce using rule 10 (expression -> expression ATOM_H .)
+    $end            reduce using rule 10 (expression -> expression ATOM_H .)
+
+  ! NUM             [ reduce using rule 10 (expression -> expression ATOM_H .) ]
+
+
+state 6
+
+    (5) expression -> expression DOT .
+
+    LSQUAR          reduce using rule 5 (expression -> expression DOT .)
+    DOT             reduce using rule 5 (expression -> expression DOT .)
+    CHARGE          reduce using rule 5 (expression -> expression DOT .)
+    BOND            reduce using rule 5 (expression -> expression DOT .)
+    ATOM            reduce using rule 5 (expression -> expression DOT .)
+    ATOM_H          reduce using rule 5 (expression -> expression DOT .)
+    LPAREN          reduce using rule 5 (expression -> expression DOT .)
+    RPAREN          reduce using rule 5 (expression -> expression DOT .)
+    MAP_NUM         reduce using rule 5 (expression -> expression DOT .)
+    CYCLE_NUM       reduce using rule 5 (expression -> expression DOT .)
+    NUM             reduce using rule 5 (expression -> expression DOT .)
+    RSQUAR          reduce using rule 5 (expression -> expression DOT .)
+    COLON           reduce using rule 5 (expression -> expression DOT .)
+    $end            reduce using rule 5 (expression -> expression DOT .)
+
+
+state 7
+
+    (6) expression -> expression CHARGE .
+
+    LSQUAR          reduce using rule 6 (expression -> expression CHARGE .)
+    DOT             reduce using rule 6 (expression -> expression CHARGE .)
+    CHARGE          reduce using rule 6 (expression -> expression CHARGE .)
+    BOND            reduce using rule 6 (expression -> expression CHARGE .)
+    ATOM            reduce using rule 6 (expression -> expression CHARGE .)
+    ATOM_H          reduce using rule 6 (expression -> expression CHARGE .)
+    LPAREN          reduce using rule 6 (expression -> expression CHARGE .)
+    RPAREN          reduce using rule 6 (expression -> expression CHARGE .)
+    MAP_NUM         reduce using rule 6 (expression -> expression CHARGE .)
+    CYCLE_NUM       reduce using rule 6 (expression -> expression CHARGE .)
+    NUM             reduce using rule 6 (expression -> expression CHARGE .)
+    RSQUAR          reduce using rule 6 (expression -> expression CHARGE .)
+    COLON           reduce using rule 6 (expression -> expression CHARGE .)
+    $end            reduce using rule 6 (expression -> expression CHARGE .)
+
+
+state 8
+
+    (7) expression -> expression BOND .
+
+    LSQUAR          reduce using rule 7 (expression -> expression BOND .)
+    DOT             reduce using rule 7 (expression -> expression BOND .)
+    CHARGE          reduce using rule 7 (expression -> expression BOND .)
+    BOND            reduce using rule 7 (expression -> expression BOND .)
+    ATOM            reduce using rule 7 (expression -> expression BOND .)
+    ATOM_H          reduce using rule 7 (expression -> expression BOND .)
+    LPAREN          reduce using rule 7 (expression -> expression BOND .)
+    RPAREN          reduce using rule 7 (expression -> expression BOND .)
+    MAP_NUM         reduce using rule 7 (expression -> expression BOND .)
+    CYCLE_NUM       reduce using rule 7 (expression -> expression BOND .)
+    NUM             reduce using rule 7 (expression -> expression BOND .)
+    RSQUAR          reduce using rule 7 (expression -> expression BOND .)
+    COLON           reduce using rule 7 (expression -> expression BOND .)
+    $end            reduce using rule 7 (expression -> expression BOND .)
+
+
+state 9
+
+    (8) expression -> expression ATOM .
+
+    LSQUAR          reduce using rule 8 (expression -> expression ATOM .)
+    DOT             reduce using rule 8 (expression -> expression ATOM .)
+    CHARGE          reduce using rule 8 (expression -> expression ATOM .)
+    BOND            reduce using rule 8 (expression -> expression ATOM .)
+    ATOM            reduce using rule 8 (expression -> expression ATOM .)
+    ATOM_H          reduce using rule 8 (expression -> expression ATOM .)
+    LPAREN          reduce using rule 8 (expression -> expression ATOM .)
+    RPAREN          reduce using rule 8 (expression -> expression ATOM .)
+    MAP_NUM         reduce using rule 8 (expression -> expression ATOM .)
+    CYCLE_NUM       reduce using rule 8 (expression -> expression ATOM .)
+    NUM             reduce using rule 8 (expression -> expression ATOM .)
+    RSQUAR          reduce using rule 8 (expression -> expression ATOM .)
+    COLON           reduce using rule 8 (expression -> expression ATOM .)
+    $end            reduce using rule 8 (expression -> expression ATOM .)
+
+
+state 10
+
+    (15) expression -> expression NUM .
+
+    LSQUAR          reduce using rule 15 (expression -> expression NUM .)
+    DOT             reduce using rule 15 (expression -> expression NUM .)
+    CHARGE          reduce using rule 15 (expression -> expression NUM .)
+    BOND            reduce using rule 15 (expression -> expression NUM .)
+    ATOM            reduce using rule 15 (expression -> expression NUM .)
+    ATOM_H          reduce using rule 15 (expression -> expression NUM .)
+    LPAREN          reduce using rule 15 (expression -> expression NUM .)
+    RPAREN          reduce using rule 15 (expression -> expression NUM .)
+    MAP_NUM         reduce using rule 15 (expression -> expression NUM .)
+    CYCLE_NUM       reduce using rule 15 (expression -> expression NUM .)
+    NUM             reduce using rule 15 (expression -> expression NUM .)
+    RSQUAR          reduce using rule 15 (expression -> expression NUM .)
+    COLON           reduce using rule 15 (expression -> expression NUM .)
+    $end            reduce using rule 15 (expression -> expression NUM .)
+
+
+state 11
+
+    (11) expression -> expression LPAREN .
+
+    LSQUAR          reduce using rule 11 (expression -> expression LPAREN .)
+    DOT             reduce using rule 11 (expression -> expression LPAREN .)
+    CHARGE          reduce using rule 11 (expression -> expression LPAREN .)
+    BOND            reduce using rule 11 (expression -> expression LPAREN .)
+    ATOM            reduce using rule 11 (expression -> expression LPAREN .)
+    ATOM_H          reduce using rule 11 (expression -> expression LPAREN .)
+    LPAREN          reduce using rule 11 (expression -> expression LPAREN .)
+    RPAREN          reduce using rule 11 (expression -> expression LPAREN .)
+    MAP_NUM         reduce using rule 11 (expression -> expression LPAREN .)
+    CYCLE_NUM       reduce using rule 11 (expression -> expression LPAREN .)
+    NUM             reduce using rule 11 (expression -> expression LPAREN .)
+    RSQUAR          reduce using rule 11 (expression -> expression LPAREN .)
+    COLON           reduce using rule 11 (expression -> expression LPAREN .)
+    $end            reduce using rule 11 (expression -> expression LPAREN .)
+
+
+state 12
+
+    (12) expression -> expression RPAREN .
+
+    LSQUAR          reduce using rule 12 (expression -> expression RPAREN .)
+    DOT             reduce using rule 12 (expression -> expression RPAREN .)
+    CHARGE          reduce using rule 12 (expression -> expression RPAREN .)
+    BOND            reduce using rule 12 (expression -> expression RPAREN .)
+    ATOM            reduce using rule 12 (expression -> expression RPAREN .)
+    ATOM_H          reduce using rule 12 (expression -> expression RPAREN .)
+    LPAREN          reduce using rule 12 (expression -> expression RPAREN .)
+    RPAREN          reduce using rule 12 (expression -> expression RPAREN .)
+    MAP_NUM         reduce using rule 12 (expression -> expression RPAREN .)
+    CYCLE_NUM       reduce using rule 12 (expression -> expression RPAREN .)
+    NUM             reduce using rule 12 (expression -> expression RPAREN .)
+    RSQUAR          reduce using rule 12 (expression -> expression RPAREN .)
+    COLON           reduce using rule 12 (expression -> expression RPAREN .)
+    $end            reduce using rule 12 (expression -> expression RPAREN .)
+
+
+state 13
+
+    (13) expression -> expression MAP_NUM .
+
+    LSQUAR          reduce using rule 13 (expression -> expression MAP_NUM .)
+    DOT             reduce using rule 13 (expression -> expression MAP_NUM .)
+    CHARGE          reduce using rule 13 (expression -> expression MAP_NUM .)
+    BOND            reduce using rule 13 (expression -> expression MAP_NUM .)
+    ATOM            reduce using rule 13 (expression -> expression MAP_NUM .)
+    ATOM_H          reduce using rule 13 (expression -> expression MAP_NUM .)
+    LPAREN          reduce using rule 13 (expression -> expression MAP_NUM .)
+    RPAREN          reduce using rule 13 (expression -> expression MAP_NUM .)
+    MAP_NUM         reduce using rule 13 (expression -> expression MAP_NUM .)
+    CYCLE_NUM       reduce using rule 13 (expression -> expression MAP_NUM .)
+    NUM             reduce using rule 13 (expression -> expression MAP_NUM .)
+    RSQUAR          reduce using rule 13 (expression -> expression MAP_NUM .)
+    COLON           reduce using rule 13 (expression -> expression MAP_NUM .)
+    $end            reduce using rule 13 (expression -> expression MAP_NUM .)
+
+
+state 14
+
+    (14) expression -> expression CYCLE_NUM .
+
+    LSQUAR          reduce using rule 14 (expression -> expression CYCLE_NUM .)
+    DOT             reduce using rule 14 (expression -> expression CYCLE_NUM .)
+    CHARGE          reduce using rule 14 (expression -> expression CYCLE_NUM .)
+    BOND            reduce using rule 14 (expression -> expression CYCLE_NUM .)
+    ATOM            reduce using rule 14 (expression -> expression CYCLE_NUM .)
+    ATOM_H          reduce using rule 14 (expression -> expression CYCLE_NUM .)
+    LPAREN          reduce using rule 14 (expression -> expression CYCLE_NUM .)
+    RPAREN          reduce using rule 14 (expression -> expression CYCLE_NUM .)
+    MAP_NUM         reduce using rule 14 (expression -> expression CYCLE_NUM .)
+    CYCLE_NUM       reduce using rule 14 (expression -> expression CYCLE_NUM .)
+    NUM             reduce using rule 14 (expression -> expression CYCLE_NUM .)
+    RSQUAR          reduce using rule 14 (expression -> expression CYCLE_NUM .)
+    COLON           reduce using rule 14 (expression -> expression CYCLE_NUM .)
+    $end            reduce using rule 14 (expression -> expression CYCLE_NUM .)
+
+
+state 15
+
+    (16) expression -> expression RSQUAR .
+
+    LSQUAR          reduce using rule 16 (expression -> expression RSQUAR .)
+    DOT             reduce using rule 16 (expression -> expression RSQUAR .)
+    CHARGE          reduce using rule 16 (expression -> expression RSQUAR .)
+    BOND            reduce using rule 16 (expression -> expression RSQUAR .)
+    ATOM            reduce using rule 16 (expression -> expression RSQUAR .)
+    ATOM_H          reduce using rule 16 (expression -> expression RSQUAR .)
+    LPAREN          reduce using rule 16 (expression -> expression RSQUAR .)
+    RPAREN          reduce using rule 16 (expression -> expression RSQUAR .)
+    MAP_NUM         reduce using rule 16 (expression -> expression RSQUAR .)
+    CYCLE_NUM       reduce using rule 16 (expression -> expression RSQUAR .)
+    NUM             reduce using rule 16 (expression -> expression RSQUAR .)
+    RSQUAR          reduce using rule 16 (expression -> expression RSQUAR .)
+    COLON           reduce using rule 16 (expression -> expression RSQUAR .)
+    $end            reduce using rule 16 (expression -> expression RSQUAR .)
+
+
+state 16
+
+    (18) expression -> expression COLON .
+
+    LSQUAR          reduce using rule 18 (expression -> expression COLON .)
+    DOT             reduce using rule 18 (expression -> expression COLON .)
+    CHARGE          reduce using rule 18 (expression -> expression COLON .)
+    BOND            reduce using rule 18 (expression -> expression COLON .)
+    ATOM            reduce using rule 18 (expression -> expression COLON .)
+    ATOM_H          reduce using rule 18 (expression -> expression COLON .)
+    LPAREN          reduce using rule 18 (expression -> expression COLON .)
+    RPAREN          reduce using rule 18 (expression -> expression COLON .)
+    MAP_NUM         reduce using rule 18 (expression -> expression COLON .)
+    CYCLE_NUM       reduce using rule 18 (expression -> expression COLON .)
+    NUM             reduce using rule 18 (expression -> expression COLON .)
+    RSQUAR          reduce using rule 18 (expression -> expression COLON .)
+    COLON           reduce using rule 18 (expression -> expression COLON .)
+    $end            reduce using rule 18 (expression -> expression COLON .)
+
+
+state 17
+
+    (2) expression -> LSQUAR ATOM .
+
+    LSQUAR          reduce using rule 2 (expression -> LSQUAR ATOM .)
+    DOT             reduce using rule 2 (expression -> LSQUAR ATOM .)
+    CHARGE          reduce using rule 2 (expression -> LSQUAR ATOM .)
+    BOND            reduce using rule 2 (expression -> LSQUAR ATOM .)
+    ATOM            reduce using rule 2 (expression -> LSQUAR ATOM .)
+    ATOM_H          reduce using rule 2 (expression -> LSQUAR ATOM .)
+    LPAREN          reduce using rule 2 (expression -> LSQUAR ATOM .)
+    RPAREN          reduce using rule 2 (expression -> LSQUAR ATOM .)
+    MAP_NUM         reduce using rule 2 (expression -> LSQUAR ATOM .)
+    CYCLE_NUM       reduce using rule 2 (expression -> LSQUAR ATOM .)
+    NUM             reduce using rule 2 (expression -> LSQUAR ATOM .)
+    RSQUAR          reduce using rule 2 (expression -> LSQUAR ATOM .)
+    COLON           reduce using rule 2 (expression -> LSQUAR ATOM .)
+    $end            reduce using rule 2 (expression -> LSQUAR ATOM .)
+
+
+state 18
+
+    (3) expression -> LSQUAR ATOM_H .
+
+    LSQUAR          reduce using rule 3 (expression -> LSQUAR ATOM_H .)
+    DOT             reduce using rule 3 (expression -> LSQUAR ATOM_H .)
+    CHARGE          reduce using rule 3 (expression -> LSQUAR ATOM_H .)
+    BOND            reduce using rule 3 (expression -> LSQUAR ATOM_H .)
+    ATOM            reduce using rule 3 (expression -> LSQUAR ATOM_H .)
+    ATOM_H          reduce using rule 3 (expression -> LSQUAR ATOM_H .)
+    LPAREN          reduce using rule 3 (expression -> LSQUAR ATOM_H .)
+    RPAREN          reduce using rule 3 (expression -> LSQUAR ATOM_H .)
+    MAP_NUM         reduce using rule 3 (expression -> LSQUAR ATOM_H .)
+    CYCLE_NUM       reduce using rule 3 (expression -> LSQUAR ATOM_H .)
+    NUM             reduce using rule 3 (expression -> LSQUAR ATOM_H .)
+    RSQUAR          reduce using rule 3 (expression -> LSQUAR ATOM_H .)
+    COLON           reduce using rule 3 (expression -> LSQUAR ATOM_H .)
+    $end            reduce using rule 3 (expression -> LSQUAR ATOM_H .)
+
+
+state 19
+
+    (4) expression -> expression LSQUAR ATOM_H .
+
+    LSQUAR          reduce using rule 4 (expression -> expression LSQUAR ATOM_H .)
+    DOT             reduce using rule 4 (expression -> expression LSQUAR ATOM_H .)
+    CHARGE          reduce using rule 4 (expression -> expression LSQUAR ATOM_H .)
+    BOND            reduce using rule 4 (expression -> expression LSQUAR ATOM_H .)
+    ATOM            reduce using rule 4 (expression -> expression LSQUAR ATOM_H .)
+    ATOM_H          reduce using rule 4 (expression -> expression LSQUAR ATOM_H .)
+    LPAREN          reduce using rule 4 (expression -> expression LSQUAR ATOM_H .)
+    RPAREN          reduce using rule 4 (expression -> expression LSQUAR ATOM_H .)
+    MAP_NUM         reduce using rule 4 (expression -> expression LSQUAR ATOM_H .)
+    CYCLE_NUM       reduce using rule 4 (expression -> expression LSQUAR ATOM_H .)
+    NUM             reduce using rule 4 (expression -> expression LSQUAR ATOM_H .)
+    RSQUAR          reduce using rule 4 (expression -> expression LSQUAR ATOM_H .)
+    COLON           reduce using rule 4 (expression -> expression LSQUAR ATOM_H .)
+    $end            reduce using rule 4 (expression -> expression LSQUAR ATOM_H .)
+
+
+state 20
+
+    (9) expression -> expression ATOM_H NUM .
+
+    LSQUAR          reduce using rule 9 (expression -> expression ATOM_H NUM .)
+    DOT             reduce using rule 9 (expression -> expression ATOM_H NUM .)
+    CHARGE          reduce using rule 9 (expression -> expression ATOM_H NUM .)
+    BOND            reduce using rule 9 (expression -> expression ATOM_H NUM .)
+    ATOM            reduce using rule 9 (expression -> expression ATOM_H NUM .)
+    ATOM_H          reduce using rule 9 (expression -> expression ATOM_H NUM .)
+    LPAREN          reduce using rule 9 (expression -> expression ATOM_H NUM .)
+    RPAREN          reduce using rule 9 (expression -> expression ATOM_H NUM .)
+    MAP_NUM         reduce using rule 9 (expression -> expression ATOM_H NUM .)
+    CYCLE_NUM       reduce using rule 9 (expression -> expression ATOM_H NUM .)
+    NUM             reduce using rule 9 (expression -> expression ATOM_H NUM .)
+    RSQUAR          reduce using rule 9 (expression -> expression ATOM_H NUM .)
+    COLON           reduce using rule 9 (expression -> expression ATOM_H NUM .)
+    $end            reduce using rule 9 (expression -> expression ATOM_H NUM .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for ATOM_H in state 4 resolved as shift
+WARNING: shift/reduce conflict for NUM in state 5 resolved as shift
