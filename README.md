@@ -1,28 +1,29 @@
 
-# 化学反应逆向预测
 
-## Python 版本
+# Retrosynthesis Plan
+
+## Python Version
 
 python3.6
 
-## 安装依赖
+## Install Requirements
 * RDKit
 ```bash
-# 安装rdkit
+# install rdkit
 conda install -c conda-forge rdkit
-# 安装pytorch
-请按照官网安装: https://pytorch.org/
-# 安装pyg
-请按照官网安装: https://pytorch-geometric.readthedocs.io/en/latest/notes/installation.html
-# 安装其他依赖
-cd synprepy # 进入项目文件夹
+# install pytorch
+install from https://pytorch.org/
+# install pyg
+install from https://pytorch-geometric.readthedocs.io/en/latest/notes/installation.html
+# install others requirements
+cd synprepy #
 pip install -r requirements.txt
 
 ```
 
-## 准备数据
+## Prepare Data
 
-1. 准备具有如下反应数据的tsv文件
+1. Prepare reaction data file with .tsv format
 
 | rid | rxn_smi |
 | --- | ------- |
@@ -30,7 +31,7 @@ pip install -r requirements.txt
 | 1 | [O:13]1[CH2:14][CH2:15][CH2:16][CH2:17]1>>[O:13]([CH2:14][C@@H:15]1[O:13][C@H:17]2[C@@H:15]([CH2:14][CH2:16]1)[CH2:16]2)[CH3:17] |
 
 
-## 填写配置文件（config.json）
+## write config file (config.json)
 
 ```json
 {
@@ -58,13 +59,3 @@ pip install -r requirements.txt
   "min_num_covered_rxns_by_rxn_extended_template": 50
 }
 ```
-
-## 单步反应预测
-
-1. 抽取反应模板：
-
-运行 rxn_template_prepare.py
-
-2. 训练单步反应模板选择器：
-
-运行 rxn_template_selector/rct_train_test.py
